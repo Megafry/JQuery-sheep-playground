@@ -1,0 +1,173 @@
+body {
+	margin: 5px;
+    background-color: #989a1d;
+	margin-top: 50px;
+	margin-bottom: 100px;
+}
+
+.output {
+    background-color: rgba(43, 47, 58, 0.85);
+    color: #92b1c4;
+    min-height: 23px;
+    min-width: 250px;
+    padding: 10px 0;
+    border-radius: 0 5px 0 0;
+    font-family: monospace;
+    font-size: 20px;
+    bottom: 0;
+    position: fixed;
+    margin-left: -5px;
+	z-index: 5;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.52);
+
+}
+.output > .line {
+    padding: 5px 15px;
+	background-color: rgba(23, 25, 31, 0.85);
+}
+.output > .line:nth-child(2) {
+	 background-color: rgba(43, 47, 58, 0.85);
+}
+
+
+.enclosure {
+	position: relative;
+    border-radius: 5px;
+    border: 3px solid #543b32;
+    padding: 15px;
+    margin: auto;
+    width: 450px;
+    text-align: center;
+    margin-bottom: 15px;
+    background-color: #7db418;
+ }
+.enclosure:before{
+    content: attr(data-farme);
+    display: block;
+    position: absolute;
+    left: 50%;
+    margin-left: -75px;
+    width: 150px;
+    top: -10px;
+    background-color: #543b32;
+    color: #fff;
+    padding: 1px 5px;
+    border-radius: 5px;
+}
+
+
+.sheep {
+	background-image: url('../Images/sheep.png');
+	background-color: #fff;
+	width: 70px;
+	height: 50px;
+	display: inline-block;
+    margin: 15px;
+    background-size: 100% 100%;
+    background-position: center center;
+    animation: be 1.5s infinite;
+	transform-origin: bottom center;
+	cursor: pointer;
+
+}
+
+.sheep.baby {
+    height: 31px;
+    width: 40px;
+}
+.sheep > .sheep {
+    margin: 0;
+    width: 31px;
+    height: 27px;
+    display: inline-block;
+    float: left;
+    margin-top: 23px;
+	background-color: #efcedb;
+
+}
+
+.sheep > .sheep:nth-child(+n+3) {
+    margin-top: -16px;
+}
+
+
+.sheep.black {
+    background-color: #222;
+}
+
+
+
+.sheep.clone {
+		background-color: #f0f0f0;
+	 animation: clone 1.5s infinite alternate, be 1.5s infinite;
+}
+
+.sheep.rose {
+	background-color: #e8b2c8;
+}
+
+
+.action {
+    position: relative;
+    border-radius: 0 0 5px 5px;
+    border: 3px solid #543b32;
+    padding: 10px 15px;
+    margin: auto;
+    width: 450px;
+    text-align: center;
+    background-color: #846053;
+    margin-top: -50px;
+    margin-bottom: 50px;
+    border-top: none;
+
+}
+
+button,
+.button {
+	background-color: transparent;
+	color: #fff;
+	font-size: 18px;
+	border: 3px solid #fff;
+	border-radius: 30px;
+	padding: 5px 20px;
+	cursor: pointer;
+	-webkit-appearance: none;
+	transition: all 0.2s ease-in-out;
+	margin: 0 7px;
+}
+button:hover,
+.button:hover {
+	background-color: #fff;
+	color: #846053;
+}
+
+.hidden {
+	display: none;	
+}
+
+/* CSS3 Animation*/
+@keyframes be {
+	0% {
+		transform: scale(1,1);
+	}
+	50% {
+		transform: scale(1,0.9);
+	}
+	100% {
+		transform: scale(1,1);
+	}
+}
+
+
+/* CSS3 Animation*/
+@keyframes clone {
+	0% {
+		background-color: #66e476;
+	}
+	50% {
+		background-color: #a953f7;
+	}
+	100% {
+		background-color: #6262e4;
+	}
+}
