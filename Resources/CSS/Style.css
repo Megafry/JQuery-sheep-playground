@@ -68,7 +68,38 @@ body {
     animation: be 1.5s infinite;
 	transform-origin: bottom center;
 	cursor: pointer;
+    /*
+    mask-image: url(../Images/sheep_mask.png);
+    -webkit-mask-image: url(../Images/sheep_mask.png);
+    -webkit-mask-size: 100% 100%;
+    */
+}
 
+.sheep:before {
+    opacity: 0;
+    /*content: attr(data-name) ' ♂ ' attr(data-gender);*/
+    content: attr(data-name)'\00a0\00a0⚦' ;
+    position: absolute;
+    border-radius: 5px;
+    border: 1px solid #543b32;
+    text-align: center;
+    background-color: #846053;
+    color: #fff;
+    
+    padding: 1px 6px 2px;
+    left: -26px;
+    top: -15px;
+    font-size: 13px;
+    transition: all 0.2s ease-in-out;
+}
+
+.sheep[data-gender="f"]:before {
+    content: attr(data-name)'\00a0\00a0♀';
+    background-color: #b16c88;
+}
+
+.sheep:hover:before {
+    opacity: 1;
 }
 
 .sheep.baby {
@@ -98,8 +129,8 @@ body {
 
 
 .sheep.clone {
-		background-color: #f0f0f0;
-	 animation: clone 1.5s infinite alternate, be 1.5s infinite;
+    background-color: #f0f0f0;
+    animation: clone 1.5s infinite alternate, be 1.5s infinite;
 }
 
 .sheep.rose {

@@ -11,31 +11,31 @@
 
 <div class="action hidden-lv">
 	<button id="filter">Filter 1</button>
-	<button id="filter2">f2</button>
-	<button id="filter3">f3</button>
+	<button id="add">+ Add</button>
+	<button id="remove">- remove</button>
 </div>
 
 <section>
 <div class="enclosure enclosure_1" data-farme="John's farm">
-	<div class="sheep rose"></div>
-	<div class="sheep baby"></div>
-	<div class="sheep baby"></div>
-	<div class="sheep"></div>
+	<div class="sheep rose" data-name="Teo" data-gender="m"></div>
+	<div class="sheep baby" data-name="Vita" data-gender="f"></div>
+	<div class="sheep baby" data-name="Tim" data-gender="m"></div>
+	<div class="sheep" data-name="Albert" data-gender="m"></div>
 	
 </div>
 
 <div class="enclosure enclosure_2" data-farme="Dickson's farm">
-	<div class="sheep">
-		<div class="sheep"></div>
+	<div class="sheep" data-name="Anita" data-gender="f">
+		<div class="sheep" data-name="Paul" data-gender="m"></div>
 	</div>
-	<div class="sheep "></div>
-	<div class="sheep black"></div>
-	<div class="sheep black baby"></div>
-	<div class="sheep"></div>
+	<div class="sheep" data-name="Anna" data-gender="f"></div>
+	<div class="sheep black" data-name="Pit" data-gender="m"></div>
+	<div class="sheep black baby" data-name="Tea" data-gender="f"></div>
+	<div class="sheep" data-name="Kim" data-gender="m"></div>
 	
-	<div class="sheep rose">
-		<div class="sheep"></div>
-		<div class="sheep "></div>
+	<div class="sheep rose" data-name="Rose" data-gender="f">
+		<div class="sheep" data-name="Tina" data-gender="f"></div>
+		<div class="sheep " data-name="Boris" data-gender="m"></div>
 	</div>
 
 </div>
@@ -116,7 +116,66 @@ $( document ).ready(function() {
 
 	});
 
+	$("#add").on("click", function(){
+		var model = $(".sheep").first();
 
+		var name = prompt("new name for the sheep :");
+
+		var gender = confirm('Change gender to Male ?');
+
+		var clone = model.clone().attr("data-name", name);
+
+		if(gender){
+			clone.attr("data-gender", "m");
+		}else{
+			clone.attr("data-gender", "f");
+		}
+		
+
+		$(".enclosure_3").append(clone);
+
+	});
+
+	$("#remove").on("click", function(){
+		
+
+		var nbsheep = $(".sheep").length;
+
+		var randindex = Math.floor(Math.random() * nbsheep);   
+
+		var theChosenOne = $(".sheep").eq(randindex);
+
+
+
+		var theChosenOneName = theChosenOne.attr("data-name");
+
+		var conf = confirm('Remove the sheep '+ theChosenOneName );
+
+		if(conf){
+			theChosenOne.remove();
+		}
+
+		
+	});
+
+/*
+	$(".sheep").hover(function(){
+
+		$(this).animate({
+			opacity: 0.5,
+
+		}, 500, function(){
+			$(this).css({
+				backgroundColor: "red",
+			});
+		});
+	}, function(){
+		$(this).animate({
+			opacity: 1,
+		});
+
+	});
+*/
 
 });
 

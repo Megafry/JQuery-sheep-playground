@@ -26,6 +26,9 @@ Exercise 4:
 how many new born sheep has Dickson ?
 (new born are children element form a sheep)
 
+Exercise 4: 
+
+chage the name of a new born sheep.
 
 2.0 : click event
 
@@ -74,4 +77,56 @@ Exercise 1:
 
 Putt the mother widt new born to the begin flow by the baby 
 
+Exercise 2:
+
+move all male sheep from John's farm to your
+
+Exercise 3:
+
+By clicking on the "+ add" button add a sheep to your farm
+
+Exercise 3.1:
+
+add a modal to set the name of the new sheep
+
+Exercise 3.2:
+
+add a modal to set the gender of the new sheep
+
+
+Exercise 4:
+
+Make it posible to remove the first sheep
+
+Exercise 4.1:
+
+Add a fonfirmation modal
+
+Exercise 4.2:
+
+Chose a random sheep to remove
+
+Exercise 4.3:
+
+add the name of the sheep in the modal
+
+
+5.0 animation 
+
+Exercise 1:
+
+make all black sheep 50% trensparent 
+
+Exercise 1.1:
+
+make sheep 50% trensparent with a delay of 5 sec if the mouse got hover
+
+
+Exercise 1.2:
+
+Make the sheep blue after the animation is completed.
+
+Exercise 1.3:
+
+set the opacity back to 100% after the mouse has leave
 
