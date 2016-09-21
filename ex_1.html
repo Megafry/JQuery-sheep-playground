@@ -119,9 +119,9 @@ $( document ).ready(function() {
 	$("#add").on("click", function(){
 		var model = $(".sheep").first();
 
-		var name = prompt("new name for the sheep :");
+		var name = prompt("new name for sheep :");
 
-		var gender = confirm('Change gender to Male ?');
+		var gender = confirm('Change gender to male ?');
 
 		var clone = model.clone().attr("data-name", name);
 

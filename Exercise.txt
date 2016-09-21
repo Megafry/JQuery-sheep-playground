@@ -2,53 +2,54 @@ By Megafry 2016
 
 Intro:
 
-Learn jQuery Selector.
+Learn to use jQuery Selector.
 
-You kann use the function addOutput() to display your results.
+You can use the function addOutput() to display your results.
 
 
-1.0: selector
+1.0: Selector
 
 Exercise 1:
 
-how many sheep can you find on the page ?
+How many sheep can you find on the page?
 
 Exercise 2:
 
-how many sheep has John and Dickson, written two lines ?
+How many sheep has John and how many has Dickson? Write two separate lines.
 
 Exercise 3:
 
-how many baby sheep has John ?
+How many baby sheep has John?
 
 Exercise 4:
 
-how many new born sheep has Dickson ?
-(new born are children element form a sheep)
+How many new born sheep has Dickson?
+(new born sheep are child-elements of a sheep)
 
-Exercise 4: 
+Exercise 5: 
 
 chage the name of a new born sheep.
 
-2.0 : click event
+2.0 : Click-Event
 
 Exercise 1:
 
-Wenn you click on a sheep add the class rose on it
+When you click on a sheep, add the class rose to it.
 
 Exercise 2:
 
-Wenn you click on the farm all sheep inside turn to rose.
+When you click on the farm, all sheep inside should turn rose.
 
 
-3.0 creat, remove add and clone
+3.0 Create, Remove, Add and Clone
 
 Exercise 1:
 
-Add a new born Wenn you click on a sheep.
+Add a new born by clicking on a sheep.
 
 Exercise 1.1:
-(Only for adult plz)
+
+Adding new born sheep should only be possible on female and adult sheep.
 
 Exercise 1.2:
 
@@ -57,70 +58,67 @@ make it possible to move the new born from the mother to the enclosure.
 
 Exercise 2:
 
-make it posible to remove a sheep by right-Click (on(contextmenu))
+Make it posible to remove a sheep by right clicking it (on(contextmenu))
 
 
-Exercise 2,1:
+Exercise 2.1:
 
-	add a confirmation box 
+Add a confirmation box before removing the sheep
 
 Exercise 3:
 
-	Make it possible to move the sheep to your farm by right-Click
+Make it possible to move the sheep to your farm instead of removing it
 
 
-4.0 creat, remove add and clone
-
-Filter and order Element
+4.0 Filter and order elements
 
 Exercise 1:
 
-Putt the mother widt new born to the begin flow by the baby 
+Put all mothers with new born sheep to the beginning of the enclosure. 
 
 Exercise 2:
 
-move all male sheep from John's farm to your
+Move all male sheep from Johns farm to yours
 
 Exercise 3:
 
-By clicking on the "+ add" button add a sheep to your farm
+By clicking on the "+ add" button add a new sheep to your farm
 
 Exercise 3.1:
 
-add a modal to set the name of the new sheep
+Add a modal window to set the name of the new sheep
 
 Exercise 3.2:
 
-add a modal to set the gender of the new sheep
+Add a modal window to set the gender of the new sheep
 
 
 Exercise 4:
 
-Make it posible to remove the first sheep
+Make it possible to remove the first sheep in each enclosure.
 
 Exercise 4.1:
 
-Add a fonfirmation modal
+Add a confirmation modal window.
 
 Exercise 4.2:
 
-Chose a random sheep to remove
+Choose a random sheep to remove.
 
 Exercise 4.3:
 
-add the name of the sheep in the modal
+Add the name of the sheep in the modal window.
 
 
-5.0 animation 
+5.0 Animation 
 
 Exercise 1:
 
-make all black sheep 50% trensparent 
+Make all black sheep 50% transparent 
 
 Exercise 1.1:
 
-make sheep 50% trensparent with a delay of 5 sec if the mouse got hover
-
+Make sheep 50% transparent with a delay of 5 seconds by hovering over it
 
 Exercise 1.2:
 
@@ -128,5 +126,5 @@ Make the sheep blue after the animation is completed.
 
 Exercise 1.3:
 
-set the opacity back to 100% after the mouse has leave
+Set the opacity back to 100% after the mouse left.
 
