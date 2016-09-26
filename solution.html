@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery Sheep by Megafry</title>
+<link rel="stylesheet" type="text/css" href="./Resources/CSS/Style.css" media="all">
+</head>
+<body>
+
+<div class="output"></div>
+
+<div class="action hidden-lv">
+	<button id="filter">Filter 1</button>
+	<button id="add">+ Add</button>
+	<button id="remove">- remove</button>
+</div>
+
+<section>
+<div class="enclosure enclosure_1" data-farme="John's farm">
+	
+	<div class="sheep young" data-name="Vita" data-gender="f"></div>
+	<div class="sheep rose" data-name="Leona" data-gender="f"></div>
+	<div class="sheep young" data-name="Tim" data-gender="m"></div>
+	<div class="sheep" data-name="Albert" data-gender="m"></div>
+	
+</div>
+
+<div class="enclosure enclosure_2" data-farme="Dickson's farm">
+	<div class="sheep" data-name="Anita" data-gender="f">
+		<div class="sheep" data-name="Paul" data-gender="m"></div>
+	</div>
+	<div class="sheep" data-name="Anna" data-gender="f"></div>
+	<div class="sheep black" data-name="Pit" data-gender="m"></div>
+	<div class="sheep black young" data-name="Tea" data-gender="f"></div>
+	<div class="sheep" data-name="Kim" data-gender="m"></div>
+	
+	<div class="sheep rose" data-name="Rose" data-gender="f">
+		<div class="sheep" data-name="Tina" data-gender="f"></div>
+		<div class="sheep " data-name="Boris" data-gender="m"></div>
+	</div>
+
+</div>
+
+<div class="enclosure enclosure_3" data-farme="My farm">
+
+</div>
+
+</section>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+<script type="text/javascript">
+/* Console loger */
+$(function() {
+	var orig = console.log
+	console.log = function(input) {
+		var output = $(".output");
+		$('<div class="line">'+input+'</div>').appendTo(output);
+		orig.apply(console, [input])
+	}
+});
+</script>
+
+
+<script type="text/javascript">
+
+$( document ).ready(function() {
+
+//Exercise 1:  Selector
+
+	var numberOfSheep1 = $(".enclosure_1 .sheep").length;
+	var numberOfSheep2 = $(".enclosure_2 .sheep").length;
+	var total = $(".sheep").length;
+	var numberOfYoungSheepJohn = $(".enclosure_1 .sheep.young").length;
+	var numberOfNewBornSheepDickson = $(".enclosure_2 .sheep > .sheep").length;
+
+	console.log("John has "+numberOfSheep1+ " sheep");
+	console.log("John has "+numberOfYoungSheepJohn+ " young sheep");
+	console.log("Dickson has "+numberOfSheep2+ " sheep");
+	console.log("Dickson has "+numberOfNewBornSheepDickson+ " new born");
+	console.log("Total "+total);
+
+	$(".enclosure_2 .sheep:first-child > .sheep").attr("data-name","Snow");
+
+//Exercise 2: Click-Event
+	
+	$(".enclosure").on("click",".sheep", function(ev){
+		$(this).addClass("rose");
+		ev.stopPropagation();
+		//return false;
+	});
+
+	$(".enclosure").on("click", function(){
+		$(this).find(".sheep").addClass("rose");
+	});
+
+
+//Exercise 3: Create, Remove, Add and Clone
+
+	$(".enclosure").on("click", ".sheep[data-gender=\"f\"]:not(.young)", function(){
+		$(this).append('<div class="sheep"></div>');
+		return false;
+	});
+
+	//3.2 move
+	$(".sheep").on("click",".sheep", function(){
+		var enclosure = $(this).closest(".enclosure");
+		
+		enclosure.append( $(this).clone());
+
+		$(this).remove();
+		return false;
+	});
+
+	$(".enclosure").on("contextmenu", ".sheep", function(e){
+		if (confirm("Move this sheep to your farm") == true) {
+			$(".enclosure_3").append( $(this).clone());
+			 $(this).remove();
+		}	  
+	   return false;
+	});
+
+
+//Exercise 4: Filter and order elements
+
+	$("#filter").click( function(){
+		$(".enclosure").each( function(){
+
+			var enclosure = $(this);
+
+			$(this).children(".sheep").each( function(){
+				var e = $(this);
+
+				if(e.find(".sheep").length) {
+					enclosure.prepend(e);
+					//enclosure.prepend( e.clone());
+					//e.remove();
+				}
+			});
+		});
+
+	});
+
+//4.2
+	
+	var JohnsMaleSheep = $(".enclosure_1 > .sheep[data-gender=\"m\"]");
+	$(".enclosure_3").append(JohnsMaleSheep);
+	//JohnsMaleSheep.remove();
+	
+
+	$("#add").on("click", function(){
+		//var model = $(".sheep").first().removeClass("young");
+		var model = $('<div class="sheep"></div>');
+
+		var name = prompt("new name for sheep :");
+
+		var gender = confirm('Change gender to male ?');
+
+		var clone = model.clone().attr("data-name", name);
+
+		if(gender){
+			clone.attr("data-gender", "m");
+		}else{
+			clone.attr("data-gender", "f");
+		}
+		
+		$(".enclosure_3").append(clone);
+
+	});
+
+
+	$("#remove").on("click", function(){
+		
+
+		var nbsheep = $(".sheep").length;
+
+		var randindex = Math.floor(Math.random() * nbsheep);   
+
+		var theChosenOne = $(".sheep").eq(randindex);
+
+
+		var theChosenOneName = theChosenOne.attr("data-name");
+
+		var conf = confirm('Remove the sheep '+ theChosenOneName );
+
+		if(conf){
+			theChosenOne.remove();
+		}
+
+		
+	});
+
+
+//Exercise 5: Animation 
+/*
+	$(".sheep").hover(function(){
+
+		$(this).animate({
+			opacity: 0.5,
+
+		}, 500, function(){
+			$(this).css({
+				backgroundColor: "blue",
+			});
+		});
+	}, function(){
+		$(this).animate({
+			opacity: 1,
+		});
+
+	});
+*/
+
+});
+
+
+</script>
+
+
+
+</body>
+
+</html>
